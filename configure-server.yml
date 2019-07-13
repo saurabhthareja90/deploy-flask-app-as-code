@@ -1,0 +1,8 @@
+- name: Clone git repo and install python application
+  hosts: webserver
+  remote_user: ubuntu
+  become: true
+  tasks:
+
+    - name: Transfer the script
+      script: installApp.sh
