@@ -8,18 +8,9 @@
     ansible_python_interpreter: /usr/bin/python3
   tasks:
 
-    # - name: Ensure the NGINX daemon has started
-    #   service: name=nginx state=started
-    #   become: yes
-    #   become_method: sudo
-    # - name: Template a file to /etc/nginx/sites-enabled
-    #   template:
-    #     src: /templates/flaskapp.j2
-    #     dest: /etc/nginx/sites-enabled/flaskapp
-    # - name: Upgrade all packages to the latest version
-    #   apt:
-    #     name: "*"
-    #     state: latest
+    - name: Ensure ntp is enabled on boot
+      become: yes
+      command: systemctl enable ntp
 
     - name: Copy nginx config file
       copy:
@@ -34,3 +25,8 @@
 
     - name: restart nginx
       service: name=nginx state=restarted enabled=yes
+
+    - name: Change the working directory to flaskapp and run the flaskapp using gunicorn3.
+      shell: gunicorn3 tiny_app:app &
+      args:
+        chdir: /flaskapp
