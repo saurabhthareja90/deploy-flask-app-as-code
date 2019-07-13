@@ -8,16 +8,29 @@
     ansible_python_interpreter: /usr/bin/python3
   tasks:
 
+    # - name: Ensure the NGINX daemon has started
+    #   service: name=nginx state=started
+    #   become: yes
+    #   become_method: sudo
+    # - name: Template a file to /etc/nginx/sites-enabled
+    #   template:
+    #     src: /templates/flaskapp.j2
+    #     dest: /etc/nginx/sites-enabled/flaskapp
+    # - name: Upgrade all packages to the latest version
+    #   apt:
+    #     name: "*"
+    #     state: latest
+
     - name: Copy nginx config file
       copy:
         src: flaskapp.conf
         dest: /etc/nginx/sites-enabled/flaskapp
         owner: root
         group: root
-      notify: restart nginx
+        mode: 755
+
+    - name: Transfer the script
+      script: installApp.sh
 
     - name: restart nginx
       service: name=nginx state=restarted enabled=yes
-    #
-    - name: Transfer the script
-      script: installApp.sh

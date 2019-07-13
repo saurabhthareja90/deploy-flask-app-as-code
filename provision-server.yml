@@ -17,20 +17,7 @@
           stack_name: "afterpay-challenge-stack"
           state: present
           disable_rollback: true
-          template_url: https://s3-ap-southeast-2.amazonaws.com/cf-templates-117aq1v4f00hx-ap-southeast-2/20191948Qh-new.templatear3ekc4x0ma
+          template_url: https://s3-ap-southeast-2.amazonaws.com/cf-templates-117aq1v4f00hx-ap-southeast-2/2019194y9h-new.template2ls5zx4hcn
           template_parameters:
             KeyName: "{{ keypair }}"
         register: ec2
-
-      - name: Template a file to /etc/nginx/sites-enabled
-        template:
-          src: /templates/flaskapp.j2
-          dest: /etc/nginx/sites-enabled/flaskapp
-
-      - name: ensure nginx is at the latest version
-        apt: name=nginx state=latest
-
-      - name: start nginx
-        service:
-            name: nginx
-            state: started
