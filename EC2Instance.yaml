@@ -9,6 +9,7 @@ Resources:
     Type: 'AWS::EC2::Instance'
     Properties:
       InstanceType: t2.micro
+      DeleteOnTermination: 'true'
       SecurityGroups:
         - !Ref InstanceSecurityGroup
       KeyName: !Ref KeyName
@@ -27,8 +28,6 @@ Resources:
               sudo apt-get install python3-pip -y
               sudo pip3 install flask
               sudo apt install gunicorn3 -y
-              #sudo echo '*         hard    nofile      65535' >> /etc/security/limits.conf
-              #sudo echo '*         soft    nofile      65535' >> /etc/security/limits.conf
               sudo sysctl -w net.ipv6.conf.all.disable_ipv6=1
               sudo sysctl -w net.ipv6.conf.default.disable_ipv6=1
   InstanceSecurityGroup:

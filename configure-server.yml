@@ -12,6 +12,19 @@
       become: yes
       command: systemctl enable ntp
 
+    - name: set the max "open files" limit across all users/processes, soft & hard, to 65535
+      pam_limits:
+        domain: "*"
+        limit_type: "{{item.limit_type}}"
+        limit_item: "{{item.limit_item}}"
+        value: "{{item.value}}"
+      with_items:
+        - { limit_type: 'soft', limit_item: 'nofile', value: 65535 }
+        - { limit_type: 'hard', limit_item: 'nofile', value: 65535 }
+
+    - name: reload settings from all system configuration files
+      shell: sysctl --system
+
     - name: Copy nginx config file
       copy:
         src: flaskapp.conf
