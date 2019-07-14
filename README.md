@@ -1,7 +1,7 @@
 # afterpaytouch-challenge
 Afterpay touch challenge - Install flask application on ec2.
 
-Prerequisite -
+<b>Prerequisite</b> -
 
 1. AWS Account - please follow the steps mentioned in - https://docs.aws.amazon.com/polly/latest/dg/setting-up.html to create an AWS account and an IAM user.
 
