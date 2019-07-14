@@ -3,15 +3,15 @@ Afterpay touch challenge - Install flask application on ec2.
 
 <h1><b>Prerequisite</b></h1> -
 
-1. AWS Account - please follow the steps mentioned in - https://docs.aws.amazon.com/polly/latest/dg/setting-up.html to create an AWS account and an IAM user.
+1. AWS Account - please follow the steps mentioned in - https://docs.aws.amazon.com/polly/latest/dg/setting-up.html to create an AWS account and an IAM user if not already created.
 
 2. Install awscli - install awscli on local machine by following instructions on - https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html
 
-3. Configure awscli - configure awscli on local machine by following instructions on - https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html
+3. Configure awscli - configure awscli on local machine by following instructions on - https://docs.aws.amazon.com/cli/latest/reference/configure/
 
 4. Latest version of Ansible is installed by following instructions on - https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html
 
-5. Create ssh keypair in AWS account which we are going to use to connect to ec2 instance in later steps.
+5. Create ssh keypair in AWS account under EC2 ->Network & Security -> Key Pairs which we are going to use to connect to ec2 instance in later steps. Name the key - amazon-servers, download.
 
 
 <h2>References</h2> -
@@ -38,7 +38,7 @@ replace  \<ssh-key\> with the created in AWS account in prerequisite steps.
 
  ****aws ec2 describe-instances --filters "Name=tag:aws:cloudformation:stack-name,Values=apt-challenge" --query "Reservations[\*]\.Instances[\*]\.PublicIpAddress" --output=text****
 
-6. Update the Hosts and flaskapp.conf files \<public-ip\> section with the public-ip address of the ec2-instance created in previous step.
+6. Update the Hosts file \<public-ip\> section with the public-ip address of the ec2-instance created in previous step.
 
 7. Configure the server by executing ansible-playbook -
 

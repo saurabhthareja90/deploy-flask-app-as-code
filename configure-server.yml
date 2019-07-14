@@ -3,7 +3,7 @@
   remote_user: ubuntu
   become: yes
   become_method: sudo
-  gather_facts: no
+  gather_facts: yes
   vars:
     ansible_python_interpreter: /usr/bin/python3
   tasks:
@@ -25,9 +25,17 @@
     - name: reload settings from all system configuration files
       shell: sysctl --system
 
+    - name: get public IP
+      ipify_facts:
+      register: public_ip
+
+    - name: output
+      debug: msg="{{ public_ip }}"
+    - debug: var=public_ip
+
     - name: Copy nginx config file
-      copy:
-        src: flaskapp.conf
+      template:
+        src: flaskapp.j2
         dest: /etc/nginx/sites-enabled/flaskapp
         owner: root
         group: root
