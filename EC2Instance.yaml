@@ -9,7 +9,6 @@ Resources:
     Type: 'AWS::EC2::Instance'
     Properties:
       InstanceType: t2.micro
-      DeleteOnTermination: 'true'
       SecurityGroups:
         - !Ref InstanceSecurityGroup
       KeyName: !Ref KeyName
