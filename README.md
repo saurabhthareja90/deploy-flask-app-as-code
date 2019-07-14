@@ -1,17 +1,18 @@
 # afterpaytouch-challenge
-Afterpay touch challenge - Install flask application on ec2.
+Afterpay touch challenge - Installs flask application on EC2 instance.
 
 <h1><b>Prerequisite</b></h1> -
 
 1. AWS Account - please follow the steps mentioned in - https://docs.aws.amazon.com/polly/latest/dg/setting-up.html to create an AWS account and an IAM user if not already created.
+Note: Download the CSV file generated for the IAM user as contains the Secret Access Key and Credential required to configure AWS in Step 3.
 
-2. Install awscli - install awscli on local machine by following instructions on - https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html
+2. Install awscli - install awscli on local machine by following instructions provided on - https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html
 
-3. Configure awscli - configure awscli on local machine by following instructions on - https://docs.aws.amazon.com/cli/latest/reference/configure/
+3. Configure awscli - configure awscli on local machine by following instructions provided on - https://docs.aws.amazon.com/cli/latest/reference/configure/
 
-4. Latest version of Ansible is installed by following instructions on - https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html
+4. Latest version of Ansible is installed by following instructions provided on - https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html
 
-5. Create ssh keypair in AWS account under EC2 ->Network & Security -> Key Pairs which we are going to use to connect to ec2 instance in later steps. Name the key - amazon-servers, download.
+5. Create an ssh keypair in AWS account under EC2 -> Network & Security -> Key Pairs which will be required to connect to EC2 instances later. Name the key - amazon-servers, download.
 
 
 <h2>References</h2> -
@@ -30,11 +31,11 @@ Follow the steps mentioned below to deploy the python flask application given th
 
     ****aws cloudformation create-stack --stack-name apt-challenge --template-body file://EC2Instance.yaml --parameters ParameterKey=KeyName,ParameterValue=\<ssh-key\>****
 
-replace  \<ssh-key\> with the created in AWS account in prerequisite steps.
+replace  \<ssh-key\> with the name of the key-pair (amazon-servers) created in AWS account in prerequisite steps - Step 5.
 
-4. Let the cloudformation finish creating the stack.
+4. Let the CloudFormation finish creating the stack.
 
-5. once stack is created, get the public-ip address of ec2 instances created by executing the awscli command -
+5. Once the stack is created, get the public-ip address of EC2 instance created by executing the following awscli command -
 
     ****aws ec2 describe-instances --filters "Name=tag:aws:cloudformation:stack-name,Values=apt-challenge" --query "Reservations[\*]\.Instances[\*]\.PublicIpAddress" --output=text****
 
