@@ -37,3 +37,11 @@ replace  \<ssh-key\> with the created in AWS account in prerequisite steps.
 5. once stack is created, get the public-ip address of ec2 instances created by executing the awscli command -
 
 aws ec2 describe-instances --filters "Name=tag:aws:cloudformation:stack-name,Values=apt-challenge" --query "Reservations[\*]\.Instances[\*]\.PublicIpAddress" --output=text
+
+6. Update the Hosts and flaskapp.conf files \<public-ip\> section with the public-ip address of the ec2-instance created in previous step.
+
+7. Configure the server by executing ansible-playbook -
+
+ansible-playbook -i Hosts configure-server.yml
+
+8. open browser of your choice and goto the public-ip address of the server. it will load the flask application.
