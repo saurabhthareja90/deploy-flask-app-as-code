@@ -41,8 +41,10 @@ replace  \<ssh-key\> with the name of the key-pair (amazon-servers) created in A
 
 6. Update the Hosts file \<public-ip\> section with the public-ip address of the ec2-instance created in previous step.
 
-7. Configure the server by executing ansible-playbook -
+7. Update the Hosts file \<ssh-key\> section with path of the ssh key created earlier to connect to ec2 instance.
+
+8. Configure the server by executing ansible-playbook -
 
     ****ansible-playbook -i Hosts configure-server.yml****
 
-8. open browser of your choice and goto the public-ip address of the server. it will load the flask application.
+9. open browser of your choice and goto the public-ip address of the server. it will load the flask application.
