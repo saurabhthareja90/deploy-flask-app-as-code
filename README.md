@@ -16,7 +16,7 @@ Afterpay touch challenge - Install flask application on ec2.
 
 
 
-<h2><b>How to deploy flask application?<b><h2>
+<h2><b>How to deploy flask application?<b></h2>
 
 Follow the steps mentioned below to deploy the python flask application given the challenge -
 
