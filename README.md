@@ -9,7 +9,7 @@ Afterpay touch challenge - Install flask application on ec2.
 
 3. Configure awscli - configure awscli on local machine by following instructions on - https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html
 
-4. Make sure appropriate version of ansible is installed by following instructions on - https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html
+4. Latest version of Ansible is installed by following instructions on - https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html
 
 5. Create ssh keypair in AWS account which we are going to use to connect to ec2 instance in later steps.
 
@@ -18,7 +18,7 @@ Afterpay touch challenge - Install flask application on ec2.
 I've used stack-name - apt-challenge, feel free to use another name if you like.
 
 
-<h2><b>How to deploy flask application?<b></h2>
+<h2><b>How to deploy flask application?</b></h2>
 
 Follow the steps mentioned below to deploy the python flask application given the challenge -
 
