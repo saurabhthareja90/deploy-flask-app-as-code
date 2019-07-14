@@ -28,7 +28,7 @@ Follow the steps mentioned below to deploy the python flask application given th
 
 3. Run the cloudformation template by executing the command -
 
- ****aws cloudformation create-stack --stack-name apt-challenge --template-body file://EC2Instance.yaml --parameters ParameterKey=KeyName,ParameterValue=\<ssh-key\>****
+    ****aws cloudformation create-stack --stack-name apt-challenge --template-body file://EC2Instance.yaml --parameters ParameterKey=KeyName,ParameterValue=\<ssh-key\>****
 
 replace  \<ssh-key\> with the created in AWS account in prerequisite steps.
 
@@ -36,12 +36,12 @@ replace  \<ssh-key\> with the created in AWS account in prerequisite steps.
 
 5. once stack is created, get the public-ip address of ec2 instances created by executing the awscli command -
 
- ****aws ec2 describe-instances --filters "Name=tag:aws:cloudformation:stack-name,Values=apt-challenge" --query "Reservations[\*]\.Instances[\*]\.PublicIpAddress" --output=text****
+    ****aws ec2 describe-instances --filters "Name=tag:aws:cloudformation:stack-name,Values=apt-challenge" --query "Reservations[\*]\.Instances[\*]\.PublicIpAddress" --output=text****
 
 6. Update the Hosts file \<public-ip\> section with the public-ip address of the ec2-instance created in previous step.
 
 7. Configure the server by executing ansible-playbook -
 
-   ****ansible-playbook -i Hosts configure-server.yml****
+    ****ansible-playbook -i Hosts configure-server.yml****
 
 8. open browser of your choice and goto the public-ip address of the server. it will load the flask application.
