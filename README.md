@@ -23,7 +23,7 @@ commands used - aws configure
 I've used stack-name - apt-challenge, feel free to use another name if you like.
 
 
-<h2><b>How to deploy flask application?</b></h2>
+<h2><b>Deploy flask application -</b></h2>
 
 Follow the steps mentioned below to deploy the python flask application given the challenge -
 
@@ -51,4 +51,4 @@ replace  \<ssh-key\> with the name of the key-pair (amazon-servers) created in A
 
     ****ansible-playbook -i Hosts configure-server.yml****
 
-9. open browser of your choice and goto the public-ip address of the server. it will load the flask application.
+9. Open browser of your choice and goto the ***public-ip*** address of the server. It will load the flask application.
