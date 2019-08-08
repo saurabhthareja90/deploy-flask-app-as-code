@@ -1,5 +1,5 @@
-# afterpaytouch-challenge
-Afterpay touch challenge - Installs flask application on EC2 instance.
+# Python Flask application as code
+Installs flask application on EC2 instance.
 
 <h1><b>Prerequisite</b></h1> -
 
@@ -33,7 +33,7 @@ Follow the steps mentioned below to deploy the python flask application given th
 
 3. Run the cloudformation template by executing the command -
 
-    ****aws cloudformation create-stack --stack-name apt-challenge --template-body file://EC2Instance.yaml --parameters ParameterKey=KeyName,ParameterValue=\<ssh-key\>****
+    ****aws cloudformation create-stack --stack-name flask-app --template-body file://EC2Instance.yaml --parameters ParameterKey=KeyName,ParameterValue=\<ssh-key\>****
 
 replace  \<ssh-key\> with the name of the key-pair (amazon-servers) created in AWS account in prerequisite steps - Step 5.
 
