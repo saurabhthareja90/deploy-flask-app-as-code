@@ -20,7 +20,7 @@ commands used - aws configure
 
 
 <h2>References</h2> -
-I've used stack-name - apt-challenge, feel free to use another name if you like.
+I've used stack-name - flask-app, feel free to use another name if you like.
 
 
 <h2><b>Deploy flask application -</b></h2>
